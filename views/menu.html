@@ -1,0 +1,47 @@
+<div id="menuFrame">
+    <ul class="menu">
+        <li class="topMenu">
+            <div class="menuTitle">演出与扮演服装</div>
+            <ul>
+                <li ng-class="{active:secondMenu === 'dance'}" ng-click="changeMenu('cloth','dance')">
+                    舞蹈服装
+                </li>
+                <li ng-class="{active:secondMenu === 'host'}" ng-click="changeMenu('cloth','host')">
+                    主持与歌唱服装
+                </li>
+                <li ng-class="{active:secondMenu === 'cosplay'}" ng-click="changeMenu('cloth','cosplay')">
+                    角色扮演服装
+                </li>
+            </ul>
+        </li>
+        <li class="topMenu">
+            <div class="menuTitle">礼服</div>
+            <ul>
+                <li ng-class="{active:secondMenu === 'uniform'}" ng-click="changeMenu('cloth','uniform')">
+                    制服
+                </li>
+                <li ng-class="{active:secondMenu === 'graduate'}" ng-click="changeMenu('cloth','graduate')">
+                    毕业服装
+                </li>
+                <li ng-class="{active:secondMenu === 'activity'}" ng-click="changeMenu('cloth','activity')">
+                    活动服装
+                </li>
+                <li ng-class="{active:secondMenu === 'wedding'}" ng-click="changeMenu('cloth','wedding')">
+                    婚礼服装
+                </li>
+            </ul>
+        </li>
+        <li class="topMenu">
+            <div class="menuTitle">人偶与道具</div>
+            <ul>
+                <li ng-class="{active:secondMenu === 'doll'}" ng-click="changeMenu('prop','doll')">
+                    人偶
+                </li>
+                <li ng-class="{active:secondMenu === 'prop'}" ng-click="changeMenu('prop','prop')">
+                    道具
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div ui-view></div>
+</div>

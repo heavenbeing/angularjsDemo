@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>肆舞艺</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/siwuyi.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="wrapperForFooter">
+    <div id="top">
+        <div class="strip"></div>
+        <ul id="navigate" class="clearfix" ng-controller="topCtrl">
+            <li class="pull-right" ui-sref="menu.contact" ng-class="{active:$state.includes('contact')}">联系我们</li>
+            <li class="pull-right" ui-sref="menu.list">案例</li>
+            <li class="pull-right" ui-sref="customize" ng-class="{active:$state.includes('customize')}">定做</li>
+            <li class="pull-right" ui-sref="menu.rent" ng-class="{active:$state.includes('rent')}">租赁</li>
+            <li class="pull-right" ng-click="goList('prop','prop')" ng-class="{active:topMenu === 'prop'}">道具</li>
+            <li class="pull-right" ng-click="goList('cloth','dance')" ng-class="{active:topMenu === 'cloth'}">服装</li>
+            <li class="pull-right" ui-sref="home" ng-class="{active:$state.includes('home')}">首页</li>
+        </ul>
+    </div>
+    <div ui-view></div>
+    <!--<div id="occupyForFooter"></div>-->
+</div>
+<div id="footer">
+    页脚
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="//cdn.bootcss.com/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+    //页脚，主体高度足够时，页脚在主体下面，主体高度不够时，页脚在浏览器
+    //用脚本设置主体最小高度为浏览器高度 - 页脚高度，使得主体始终能把页脚挤压到浏览器底部或之下
+    $(document).ready(resetMinHeight);
+    $(window).resize(resetMinHeight);
+    function resetMinHeight() {
+        $("#wrapperForFooter").css("min-height", $(window).height() - 50);
+    }
+</script>
+</body>
+</html>

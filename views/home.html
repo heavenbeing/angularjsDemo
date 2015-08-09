@@ -1,0 +1,43 @@
+<div id="homeFrame">
+    <div id="carrousel">
+        <div class="carrousel" ng-mouseenter="stop()" ng-mouseleave="play()">
+            <div class="list" ng-style="{left:-left}" ng-class="{transition:transition}">   <!--图串偏移量-->
+                <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_81d09391.png"/>
+                <img src="https://www.baidu.com/img/bd_logo1.png"/>
+                <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_81d09391.png"/>
+                <img src="https://www.baidu.com/img/bd_logo1.png"/>
+                <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_81d09391.png"/>
+                <img src="https://www.baidu.com/img/bd_logo1.png"/>
+                <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_81d09391.png"/>
+            </div>
+            <div class="buttons">   <!--定位按钮-->
+                <span ng-class="{on:index == $index + 1 || (index == 0 && $index == 5)}"
+                      ng-repeat="button in [1,2,3,4,5,6]" ng-click="skip($index)"></span>
+            </div>
+            <span class="arrow glyphicon-menu-left prev" ng-click="prev()"></span> <!--左切按钮-->
+            <span class="arrow glyphicon-menu-right next" ng-click="next()"></span> <!--右切按钮-->
+        </div>
+    </div>
+    <div id="introducePic" class="clearfix">
+        <div>
+            <img src="https://www.baidu.com/img/bd_logo1.png"/>
+            <span>演出服装</span>
+        </div>
+        <div>
+            <img src="https://www.baidu.com/img/bd_logo1.png"/>
+            <span>角色扮演服装</span>
+        </div>
+        <div>
+            <img src="https://www.baidu.com/img/bd_logo1.png"/>
+            <span>毕业服装</span>
+        </div>
+        <div>
+            <img src="https://www.baidu.com/img/bd_logo1.png"/>
+            <span>制服</span>
+        </div>
+        <div>
+            <img src="https://www.baidu.com/img/bd_logo1.png"/>
+            <span>人偶</span>
+        </div>
+    </div>
+</div>

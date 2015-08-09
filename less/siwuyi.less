@@ -1,0 +1,202 @@
+//函数
+.transition(@attr,@time:0.5s){
+  -moz-transition: @attr @time; -webkit-transition: @attr @time;
+  -o-transition: @attr @time;transition: @attr @time;
+}
+.doubleTransition(@attr1,@attr2,@time:0.5s){
+  -moz-transition: @attr1 @time,@attr2 @time; -webkit-transition: @attr1 @time,@attr2 @time;
+  -o-transition: @attr1 @time,@attr2 @time;transition: @attr1 @time,@attr2 @time;
+}
+.borderRadius(@radius){
+  -moz-border-radius: @radius;      /* Gecko browsers */
+  -webkit-border-radius: @radius;   /* Webkit browsers */
+  border-radius:@radius;            /* W3C syntax */
+}
+.columnWidth(@width){
+  -webkit-column-width:@width;
+  -moz-column-width:@width;
+  -o-column-width:@width;
+  -ms-column-width:@width;
+}
+//初始化
+ul{  list-style-type:none;margin: 0}
+body {  font-family:"Microsoft YaHei";}
+@bodyWidth: 1100px;
+@backColor: #F7F7F7;
+@backColorBasic: #FFF;
+#wrapperForFooter{
+  width:@bodyWidth;
+  position: relative;
+  margin: 0 auto;
+  background-color: @backColor;
+  padding: 0 0 20px;
+}
+//页脚
+@footerHeight: 50px;
+#footer{
+  height: @footerHeight;
+  width: @bodyWidth;
+  margin: 0 auto;
+  background-color:#C1BFB0;
+  color:#FEFBF2;
+}
+
+//页头菜单
+@focusColor: #738DAE;
+#top {
+  .strip{
+    height: 3px;
+    background-color: @focusColor;
+  }
+  #navigate{
+    height:80px;
+    padding: 0 50px 0 0;
+    color:#212A31;
+    background-color: @backColorBasic;
+    font-size: 20px;
+    li{
+      padding: 10px;
+      margin:20px 20px 0 0;
+      cursor: pointer;
+      .borderRadius(5px);
+      &:hover{
+        color:#FEFBF2;
+        background-color:@focusColor;
+      }
+    }
+    .active{
+      color:#FEFBF2;
+      background-color:@focusColor;
+    }
+  }
+}
+
+
+//焦点轮播图
+@carrouselWidth: 900px;
+@carrouselHeight: 400px;
+@carrouselBtnWidth: 100px;
+#carrousel{
+  background-color: @focusColor;
+  padding: 10px 0;
+.carrousel{
+   width: @carrouselWidth; height: @carrouselHeight; border: 5px solid #FFF; overflow: hidden; position: relative;
+  margin:0 auto;
+  .list {
+    width: (@carrouselWidth * 7); height: @carrouselHeight; position: absolute; z-index: 1;
+    img { float: left;width: @carrouselWidth; height: @carrouselHeight;}    //左浮动，使得图片并排
+  }
+  .transition{
+    .transition(left)
+  };
+  .buttons {
+    position: absolute; height: 10px; width: @carrouselBtnWidth; z-index: 2; bottom: 20px;
+    left: (@carrouselWidth - @carrouselBtnWidth)/2;
+    span { cursor: pointer; float: left; border: 1px solid #fff; width: 10px; height: 10px;
+      .borderRadius(50%); background: #333; margin-right: 5px;}  //圆角半径为50%，使得边框闭合为一个圆圈
+    .on {  background: orangered;}
+  }
+  .arrow {
+    cursor: pointer; line-height: 39px; text-align: center; font-size: 36px; font-weight: bold;
+    position: absolute; z-index: 2; top: 180px; color: #000;font-family: 'Glyphicons Halflings';
+  }
+  .prev { left: 20px;}
+  .next { right: 20px;}
+}
+}
+
+//图片聚焦简介
+@introducePicWidth: 200px;
+@introducePicHeight: 150px;
+@introducePicNum: 5;
+@introduceBanHeight: 40px;
+#introducePic{
+  margin: 20px auto @introduceBanHeight;
+  width: (@introducePicWidth + 5) * @introducePicNum;
+  div{
+    position:relative;
+    float: left;
+    margin:0 5px 0 0;
+    width:@introducePicWidth;
+    height: @introducePicHeight;
+    cursor: pointer;
+    img{
+      width:@introducePicWidth;
+      height: @introducePicHeight;
+    }
+    span{
+      position:absolute;
+      z-index:33;
+      bottom:-@introduceBanHeight;
+      width:@introducePicWidth;
+      height:@introduceBanHeight;
+      background:@backColorBasic;
+      color:@focusColor;
+      line-height:20px;
+      text-align:left;
+      font-size: 20px;
+      padding: 10px;
+      .borderRadius(5px);
+      .doubleTransition(background,color);
+    }
+    &:hover{
+      span{
+        background:@focusColor;
+        color:@backColorBasic;
+      }
+    }
+  }
+}
+
+//左侧菜单
+@menuWidth: 200px;
+#menuFrame{
+  .menu{
+    width:@menuWidth;
+    position: absolute;
+    padding:10px 10px 0 20px;
+    .topMenu{
+      margin: 20px 0 0;
+      .menuTitle{
+        .borderRadius(5px);
+        background-color: #0F0F0F;
+        color: @backColorBasic;
+        font-size: 18px;
+        padding: 5px;
+      }
+      li{
+        margin: 5px 0 0;
+        color: @focusColor;
+        padding: 5px;
+        cursor: pointer;
+        .borderRadius(5px 0 0 5px);
+        &:hover{
+          background-color: @focusColor;
+          color: @backColorBasic;
+        }
+      }
+      .active{
+        background-color: @focusColor;
+        color: @backColorBasic;
+      }
+    }
+  }
+}
+
+//瀑布流
+#listFrame{
+  position:relative;
+  margin: 15px 20px 0 @menuWidth + 40px;
+  .columnWidth(190px);
+  .box{
+    margin:0 0 15px;
+    background-color: @backColorBasic;
+    .borderRadius(5px);
+    border:1px solid @backColorBasic;
+  }
+  .pic{
+    padding: 4px;
+    margin: 0 auto;
+    img{width:180px;heigth:auto;}
+  }
+}
