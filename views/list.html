@@ -1,9 +1,10 @@
 <div id="listFrame">
     <div class="waterfall clearfix">
-        <div class="box" ng-repeat="pic in pics">
+        <div class="box" ng-repeat="pic in pics" ng-click="goDetail()">
             <div class="pic">
                 <img src="img/{{pic.src}}"/>
             </div>
+            <span ng-bind="pic.desc">kk</span>
         </div>
     </div>
 </div>

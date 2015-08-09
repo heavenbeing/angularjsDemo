@@ -3,13 +3,13 @@
         <li class="topMenu">
             <div class="menuTitle">演出与扮演服装</div>
             <ul>
-                <li ng-class="{active:secondMenu === 'dance'}" ng-click="changeMenu('cloth','dance')">
+                <li ng-class="{active:secondMenu === 'dance'}" ng-click="goList('cloth','dance')">
                     舞蹈服装
                 </li>
-                <li ng-class="{active:secondMenu === 'host'}" ng-click="changeMenu('cloth','host')">
+                <li ng-class="{active:secondMenu === 'host'}" ng-click="goList('cloth','host')">
                     主持与歌唱服装
                 </li>
-                <li ng-class="{active:secondMenu === 'cosplay'}" ng-click="changeMenu('cloth','cosplay')">
+                <li ng-class="{active:secondMenu === 'cosplay'}" ng-click="goList('cloth','cosplay')">
                     角色扮演服装
                 </li>
             </ul>
@@ -17,16 +17,16 @@
         <li class="topMenu">
             <div class="menuTitle">礼服</div>
             <ul>
-                <li ng-class="{active:secondMenu === 'uniform'}" ng-click="changeMenu('cloth','uniform')">
+                <li ng-class="{active:secondMenu === 'uniform'}" ng-click="goList('cloth','uniform')">
                     制服
                 </li>
-                <li ng-class="{active:secondMenu === 'graduate'}" ng-click="changeMenu('cloth','graduate')">
+                <li ng-class="{active:secondMenu === 'graduate'}" ng-click="goList('cloth','graduate')">
                     毕业服装
                 </li>
-                <li ng-class="{active:secondMenu === 'activity'}" ng-click="changeMenu('cloth','activity')">
+                <li ng-class="{active:secondMenu === 'activity'}" ng-click="goList('cloth','activity')">
                     活动服装
                 </li>
-                <li ng-class="{active:secondMenu === 'wedding'}" ng-click="changeMenu('cloth','wedding')">
+                <li ng-class="{active:secondMenu === 'wedding'}" ng-click="goList('cloth','wedding')">
                     婚礼服装
                 </li>
             </ul>
@@ -34,10 +34,10 @@
         <li class="topMenu">
             <div class="menuTitle">人偶与道具</div>
             <ul>
-                <li ng-class="{active:secondMenu === 'doll'}" ng-click="changeMenu('prop','doll')">
+                <li ng-class="{active:secondMenu === 'doll'}" ng-click="goList('prop','doll')">
                     人偶
                 </li>
-                <li ng-class="{active:secondMenu === 'prop'}" ng-click="changeMenu('prop','prop')">
+                <li ng-class="{active:secondMenu === 'prop'}" ng-click="goList('prop','prop')">
                     道具
                 </li>
             </ul>

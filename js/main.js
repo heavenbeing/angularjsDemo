@@ -10,12 +10,18 @@ var app = angular.module("siwuyi", ['ui.router']).
                 })
                 .state('menu', {
                     url: '/menu',
-                    templateUrl: 'views/menu.html'
+                    templateUrl: 'views/menu.html',
+                    controller: ["$rootScope", "$scope","$stateParams", menuCtrl]
                 })
                 .state('menu.list', {
                     url: '/list?topMenu&secondMenu',
                     templateUrl: 'views/list.html',
                     controller: ["$rootScope", "$scope","$stateParams", listCtrl]
+                })
+                .state('menu.detail', {
+                    url: '/detail?topMenu&secondMenu',
+                    templateUrl: 'views/detail.html',
+                    controller: ["$rootScope", "$scope","$stateParams", detailCtrl]
                 })
                 .state('menu.rent', {
                     url: '/rent',
@@ -37,7 +43,11 @@ angular.bootstrap($("html")[0], ['siwuyi']);
 function topCtrl($rootScope,$scope, $state) {
     $rootScope.$state = $state;
     $rootScope.goList = function(topMenu,secondMenu){
+        $rootScope.changeMenu(topMenu,secondMenu);
         $state.go("menu.list",{topMenu:topMenu,secondMenu:secondMenu});
+    };
+    $rootScope.goDetail = function(){
+        $state.go("menu.detail",{topMenu:$rootScope.topMenu,secondMenu:$rootScope.secondMenu});
     };
     $rootScope.changeMenu = function(topMenu,secondMenu){
         $rootScope.topMenu = topMenu;
@@ -105,20 +115,22 @@ function homeCtrl($scope, $timeout, $interval) {
         $scope.stop();
     });
 }
+function menuCtrl($rootScope, $scope,$stateParams) {
 
+}
 function listCtrl($rootScope, $scope,$stateParams) {
     $rootScope.changeMenu($stateParams.topMenu, $stateParams.secondMenu);
     $scope.pics = [
-        {src: '3.jpg'},
-        {src: '1.png'},
-        {src: '2.png'},
-        {src: '2.png'},
-        {src: '2.png'},
-        {src: '3.jpg'},
-        {src: '1.png'},
-        {src: '2.png'},
-        {src: '3.jpg'},
-        {src: '2.png'},
+        {src: '3.jpg',"desc":"ffff"},
+        {src: '1.png',"desc":"ffff"},
+        {src: '2.png',"desc":"ffff"},
+        {src: '2.png',"desc":"ffff"},
+        {src: '2.png',"desc":"ffff"},
+        {src: '3.jpg',"desc":"ffff"},
+        {src: '1.png',"desc":"ffff"},
+        {src: '2.png',"desc":"ffff"},
+        {src: '3.jpg',"desc":"ffff"},
+        {src: '2.png',"desc":"ffff"},
         {src: '3.jpg'},
         {src: '1.png'},
         {src: '1.png'},
@@ -146,4 +158,24 @@ function listCtrl($rootScope, $scope,$stateParams) {
         {src: '2.png'},
         {src: '3.jpg'}
     ];
+}
+
+function detailCtrl($rootScope, $scope,$stateParams) {
+    $rootScope.changeMenu($stateParams.topMenu, $stateParams.secondMenu);
+    $scope.pics = [
+        {src: '3.jpg',"desc":"ffff"},
+        {src: '1.png',"desc":"ffff"},
+        {src: '2.png',"desc":"ffff"}
+    ];
+    $scope.index = 0;
+    $scope.prev = function(){
+        if($scope.index > 0){
+            $scope.index --;
+        }
+    };
+    $scope.next = function(){
+        if($scope.index < $scope.pics.length - 1){
+            $scope.index ++;
+        }
+    };
 }

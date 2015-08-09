@@ -24,11 +24,14 @@
         <div class="strip"></div>
         <ul id="navigate" class="clearfix" ng-controller="topCtrl">
             <li class="pull-right" ui-sref="menu.contact" ng-class="{active:$state.includes('contact')}">联系我们</li>
-            <li class="pull-right" ui-sref="menu.list">案例</li>
+            <li class="pull-right" ng-click="goList('case','case')"
+                ng-class="{active:topMenu === 'case' && $state.includes('menu')}">案例</li>
             <li class="pull-right" ui-sref="customize" ng-class="{active:$state.includes('customize')}">定做</li>
             <li class="pull-right" ui-sref="menu.rent" ng-class="{active:$state.includes('rent')}">租赁</li>
-            <li class="pull-right" ng-click="goList('prop','prop')" ng-class="{active:topMenu === 'prop'}">道具</li>
-            <li class="pull-right" ng-click="goList('cloth','dance')" ng-class="{active:topMenu === 'cloth'}">服装</li>
+            <li class="pull-right" ng-click="goList('prop','prop')"
+                ng-class="{active:topMenu === 'prop' && $state.includes('menu')}">道具</li>
+            <li class="pull-right" ng-click="goList('cloth','dance')"
+                ng-class="{active:topMenu === 'cloth' && $state.includes('menu')}">服装</li>
             <li class="pull-right" ui-sref="home" ng-class="{active:$state.includes('home')}">首页</li>
         </ul>
     </div>

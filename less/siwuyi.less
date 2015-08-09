@@ -151,6 +151,7 @@ body {  font-family:"Microsoft YaHei";}
 //左侧菜单
 @menuWidth: 200px;
 #menuFrame{
+  min-height: 500px;
   .menu{
     width:@menuWidth;
     position: absolute;
@@ -184,19 +185,60 @@ body {  font-family:"Microsoft YaHei";}
 }
 
 //瀑布流
+@waterfallPicWidth: 180px;
+@waterfallBanHeight: 40px;
 #listFrame{
   position:relative;
   margin: 15px 20px 0 @menuWidth + 40px;
   .columnWidth(190px);
   .box{
-    margin:0 0 15px;
+    position: relative;
+    margin:0 0 @waterfallBanHeight + 15px;
     background-color: @backColorBasic;
-    .borderRadius(5px);
+    .borderRadius(5px 5px 0 0);
     border:1px solid @backColorBasic;
+    cursor: pointer;
+    .pic{
+      padding: 4px;
+      margin: 0 auto;
+      img{width:@waterfallPicWidth;heigth:auto;}
+    }
+    span{
+      position:absolute;
+      bottom:-@introduceBanHeight;
+      width:100%;
+      height:@waterfallBanHeight;
+      background:@backColorBasic;
+      color:@focusColor;
+      padding: 5px;
+      .borderRadius(5px);
+      .doubleTransition(background,color);
+    }
+    &:hover{
+      span{
+        background:@focusColor;
+        color:@backColorBasic;
+      }
+    }
   }
-  .pic{
-    padding: 4px;
-    margin: 0 auto;
-    img{width:180px;heigth:auto;}
+}
+
+//详情
+#detailFrame{
+  margin: 15px 20px 0 @menuWidth + 40px;
+  .detailPic{
+    background-color: @focusColor;
+    width: 100%; height: @carrouselHeight; border: 5px solid #FFF; overflow: hidden; position: relative;
+    img{
+      display: block;
+      margin: auto auto;
+      height: @carrouselHeight;
+    }
+    .arrow {
+        cursor: pointer; line-height: 39px; text-align: center; font-size: 36px; font-weight: bold;
+        position: absolute; z-index: 2; top: 180px; color: #000;font-family: 'Glyphicons Halflings';
+    }
+    .prev { left: 20px;}
+    .next { right: 20px;}
   }
 }
