@@ -1,0 +1,10 @@
+<div id="detailFrame">
+    <div class="detailPic">
+        <div>
+            <img src="img/{{pics[index].src}}"/>
+        </div>
+        <span class="arrow glyphicon-menu-left prev" ng-click="prev()"></span> <!--左切按钮-->
+        <span class="arrow glyphicon-menu-right next" ng-click="next()"></span> <!--右切按钮-->
+    </div>
+    <div ng-bind="pics[index].desc"></div>
+</div>
