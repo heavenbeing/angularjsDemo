@@ -59,21 +59,22 @@ module.exports = function (grunt) {
             dist: {
                 files: [
                     //expand 为true，src匹配所有；否则只匹配一个。
-                    {expand: true, src: 'fonts/*', dest: 'dist/'},
+                    {expand: true, src: 'fonts/**/*', dest: 'dist/'},
                     {src: ['index.html'], dest: 'dist/'},
-                    {expand: true, src: 'js/*', dest: 'dist/'},
-                    {expand: true, src: 'views/*', dest: 'dist/'},
-                    {expand: true, src: 'css/*', dest: 'dist/'},
-                    {expand: true, src: 'img/*', dest: 'dist/'}
+                    {expand: true, src: 'lib/**/*', dest: 'dist/'},
+                    {expand: true, src: 'project/**/*', dest: 'dist/'},
+                    {expand: true, src: 'views/**/*', dest: 'dist/'},
+                    {expand: true, src: 'css/**/*', dest: 'dist/'},
+                    {expand: true, src: 'img/**/*', dest: 'dist/'}
                 ]
             },
             ready: {
                 files: [
                     //dest指定为文件夹时，会把src里包含的目录层次一并拷贝；为避免拷贝整个目录，dest指定成文件
-                    {src: ['bower_components/angular/angular.min.js'], dest: 'js/angular.min.js'},
-                    {src: ['bower_components/angular/angular.min.js.map'], dest: 'js/angular.min.js.map'},
-                    {src: ['bower_components/angular-route/angular-route.min.js'], dest: 'js/angular-route.min.js'},
-                    {src: ['bower_components/angular-route/angular-route.min.js.map'], dest: 'js/angular-route.min.js.map'}
+                    {src: ['bower_components/angular/angular.min.js'], dest: 'lib/angular.min.js'},
+                    {src: ['bower_components/angular/angular.min.js.map'], dest: 'lib/angular.min.js.map'},
+                    {src: ['bower_components/angular-route/angular-route.min.js'], dest: 'lib/angular-route.min.js'},
+                    {src: ['bower_components/angular-route/angular-route.min.js.map'], dest: 'lib/angular-route.min.js.map'}
                 ]
             }
         },
