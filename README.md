@@ -1,3 +1,2 @@
-# siwuyi
+# angularjs + require.js
 公司产品展示
-肆舞艺
